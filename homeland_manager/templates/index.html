@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  
+  <h2>Homeland Manager</h2>
+ 
+  <p>Due per apartments are:</p>
+
+  <ul>
+    <li><strong>first floor apartments (no elevator, 2 ap.):</strong> {{ total_common_sum }}</li>
+    <li><strong>all other apartments (elevator added, 6 ap.):</strong> {{ total_elevator_sum }}</li>
+  </ul>
+
+  <p>Taxes for the last month are:</p>
+
+  <ul>
+    <li><strong>cleaner tax:</strong> {{ cleaner_tax }}</li>
+    <li><strong>stairs electricity:</strong> {{ stairs_electricity }}</li>
+    <li><strong>other payments:</strong> {{ other_common }}</li>
+    <li><strong>comment:</strong> {{ other_comment }}</li>
+  </ul>
+
+  <ul>
+    <li><strong>elevator tax:</strong> {{ elevator_tax }}</li>
+    <li><strong>elevator electricity:</strong> {{ elevator_electricity }}</li>
+    <li><strong>other (elevator):</strong> {{ other_elevator }}</li>
+    <li><strong>comment:</strong> {{ elevator_comment }}</li>
+  </ul>
+
+{% endblock %}
