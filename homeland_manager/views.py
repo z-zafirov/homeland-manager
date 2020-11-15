@@ -33,28 +33,35 @@ def index(request):
     '''
 
     tax_date = 9
+
     # Create data type objects
-    common_data_list = ['cleaner_tax', 'stairs_electricity', 'other_payments', 'other_comment']
-    elevator_data_list = ['elevator_tax', 'elevator_electricity', 'elevator_additional', 'elevator_comment']
+    home_data = {}
     common_data_dict = {}
     elevator_data_dict = {}
+    common_data_list = ['cleaner_tax', 'stairs_electricity', 'other_payments', 'other_comment']
+    elevator_data_list = ['elevator_tax', 'elevator_electricity', 'elevator_additional', 'elevator_comment']
+    
     # Get DB data for the created ada objects
     for i in common_data_list:
         common_data_dict[i] = CommonDue.objects.filter(tax_date=tax_date).values_list(f'{i}')[0]
     for i in elevator_data_list:
         elevator_data_dict[i] = ElevatorDue.objects.filter(bill_date=tax_date).values_list(f'{i}')[0]
+    
     # Clean up the DB data
     for k in common_data_dict.keys():
         common_data_dict[k] = cleanup(common_data_dict[k])
     for k in elevator_data_dict.keys():
         elevator_data_dict[k] = cleanup(elevator_data_dict[k])
+    
     # Calculate due amounts
     total_common_sum = (common_data_dict['cleaner_tax'] + common_data_dict['stairs_electricity'] + common_data_dict['other_payments']) / 8
     total_elevator_sum = ((elevator_data_dict['elevator_tax'] + elevator_data_dict['elevator_electricity'] + elevator_data_dict['elevator_additional']) / 6) + total_common_sum
+    
     # Format the calculations
     total_common_sum = format_decimals(total_common_sum)
     total_elevator_sum = format_decimals(total_elevator_sum)
 
+    # Build page data stream
     home_data = {
         'cleaner_tax': common_data_dict['cleaner_tax'],
         'stairs_electricity': common_data_dict['stairs_electricity'],
@@ -67,7 +74,6 @@ def index(request):
         'total_common_sum': total_common_sum,
         'total_elevator_sum': total_elevator_sum,
     }
-
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=home_data)

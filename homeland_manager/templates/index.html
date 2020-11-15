@@ -2,29 +2,33 @@
 
 {% block content %}
   
-  <h2>Homeland Manager</h2>
- 
-  <p>Due per apartments are:</p>
+  <h3>Homeland Manager</h3>
+
+  <br>
+
+  <h5>Due per apartments are:</h5>
 
   <ul>
-    <li><strong>first floor apartments (no elevator, 2 ap.):</strong> {{ total_common_sum }}</li>
-    <li><strong>all other apartments (elevator added, 6 ap.):</strong> {{ total_elevator_sum }}</li>
+    <li>first floor apartments (no elevator, 2 ap.): {{ total_common_sum }}</li>
+    <li>all other apartments (elevator added, 6 ap.): {{ total_elevator_sum }}</li>
+  </ul>
+  
+  <h5>Common taxes for all apartments are:</h5>
+
+  <ul>
+    <li>cleaner tax: {{ cleaner_tax }}</li>
+    <li>stairs electricity: {{ stairs_electricity }}</li>
+    <li>other payments: {{ other_common }}</li>
+    <li>comment: {{ other_comment }}</li>
   </ul>
 
-  <p>Taxes for the last month are:</p>
+  <h5>Elevator only taxes are:</h5>
 
   <ul>
-    <li><strong>cleaner tax:</strong> {{ cleaner_tax }}</li>
-    <li><strong>stairs electricity:</strong> {{ stairs_electricity }}</li>
-    <li><strong>other payments:</strong> {{ other_common }}</li>
-    <li><strong>comment:</strong> {{ other_comment }}</li>
-  </ul>
-
-  <ul>
-    <li><strong>elevator tax:</strong> {{ elevator_tax }}</li>
-    <li><strong>elevator electricity:</strong> {{ elevator_electricity }}</li>
-    <li><strong>other (elevator):</strong> {{ other_elevator }}</li>
-    <li><strong>comment:</strong> {{ elevator_comment }}</li>
+    <li>elevator tax: {{ elevator_tax }}</li>
+    <li>elevator electricity: {{ elevator_electricity }}</li>
+    <li>other (elevator): {{ other_elevator }}</li>
+    <li>comment: {{ elevator_comment }}</li>
   </ul>
 
 {% endblock %}
