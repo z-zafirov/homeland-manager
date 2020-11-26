@@ -1,5 +1,14 @@
 import sqlite3
 
+'''
+db_conn = db_extract.DBconnetcion()
+
+common_dues = db_conn.get_common_dues_for_date('2020-10-03')
+elevator_dues = db_conn.get_elevator_dues_for_date('2020-10-03')
+
+db_conn.close_db_connection()
+'''
+
 class DBconnetcion():
     sqlite_file = 'db.sqlite3'
 

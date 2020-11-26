@@ -1,34 +1,62 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  
-  <h3>Homeland Manager</h3>
 
   <br>
 
-  <h5>Due per apartments are:</h5>
+  <table style="border-collapse: collapse; width: 30%;" border="0">
+    <tbody>
+      <tr>
+        <td style="width: 25%; min-width:325px;"><h5>For {{last_date}} taxes are:</h5></td>
+        <td style="width: 5%; ">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="width: 25%; min-width:325px;">first floor apartments: ({{ total_common_sum }} / 8) = </td>
+        <td style="width: 5%; ">  {{ first_floor_apartments }}  </td>
+      </tr>
+      <tr>
+        <td style="width: 25%; min-width:325px;">all other apartments: ({{ total_elevator_sum }} / 6) + {{ first_floor_apartments }} = </td>
+        <td style="width: 5%; "> {{ elevator_apartments }}  </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <ul>
-    <li>first floor apartments (no elevator, 2 ap.): {{ total_common_sum }}</li>
-    <li>all other apartments (elevator added, 6 ap.): {{ total_elevator_sum }}</li>
-  </ul>
-  
-  <h5>Common taxes for all apartments are:</h5>
+  <br>
 
-  <ul>
-    <li>cleaner tax: {{ cleaner_tax }}</li>
-    <li>stairs electricity: {{ stairs_electricity }}</li>
-    <li>other payments: {{ other_common }}</li>
-    <li>comment: {{ other_comment }}</li>
-  </ul>
+  <table style="border-collapse: collapse; width: 40%;" border="0">
+    <tbody>
+      <tr>
+        <td style="width: 15%; min-width:130px;"><h5>Common:</h5></h5></td>
+        <td style="width: 5%; min-width:60px;">  {{ total_common_sum }}  </td>
+        <td style="width: 15%; min-width:150px;"><h5>Elevator:</h5></td>
+        <td style="width: 5%;">  {{ total_elevator_sum }}  </td>
+      </tr>
+      <tr>
+        <td style="width: 15%;">cleaner tax</td>
+        <td style="width: 5%;">  {{ cleaner_tax }}  </td>
+        <td style="width: 15%;">elevator tax:</td>
+        <td style="width: 5%;">  {{ elevator_tax }}  </td>
+      </tr>
+      <tr>
+        <td style="width: 15%;">stairs electricity:</td>
+        <td style="width: 5%;">  {{ stairs_electricity }}  </td>
+        <td style="width: 15%;">elevator electricity:</td>
+        <td style="width: 5%;">  {{ elevator_electricity }}  </td>
+      </tr>
+      <tr>
+        <td style="width: 15%;">other payments:</td>
+        <td style="width: 5%;">  {{ other_common }}  </td>
+        <td style="width: 15%;">other (elevator):</td>
+        <td style="width: 5%;">  {{ other_elevator }}  </td>
+      </tr>
+      <tr>
+        <td style="width: 15%;">comment:</td>
+        <td style="width: 5%;">  {{ other_comment }}  </td>
+        <td style="width: 15%;">comment:</td>
+        <td style="width: 5%;">  {{ elevator_comment }}  </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <h5>Elevator only taxes are:</h5>
-
-  <ul>
-    <li>elevator tax: {{ elevator_tax }}</li>
-    <li>elevator electricity: {{ elevator_electricity }}</li>
-    <li>other (elevator): {{ other_elevator }}</li>
-    <li>comment: {{ elevator_comment }}</li>
-  </ul>
 
 {% endblock %}
