@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<br>
+<label>Dates: <label>
+  <select id="the-id">
+      {% for i in z %}
+      <option value="{{ i }}">{{ i }}</option>
+      {% endfor %}
+  </select>
+
+{% endblock %}

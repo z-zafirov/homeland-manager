@@ -1,3 +1,4 @@
+from django import forms
 from django.shortcuts import render
 from homeland_manager.db_modules import db_direct
 from homeland_manager.models import Apartment, Owner, CommonDue, ElevatorDue, MonthlyDue, PaymentDate
@@ -18,7 +19,7 @@ def index(request):
     '''
 
     # Get the latest date, date model would return the latest record first
-    date_record = PaymentDate.objects.filter().values_list()[1]
+    date_record = PaymentDate.objects.filter().values_list()[1] # This is not the latest one due to latest is not connected to pauments yet
     tax_date_index = date_record[0]
     last_date = date_record[1]
 
@@ -65,3 +66,9 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=home_data)
+
+
+def payment_dates(request):
+    dates_object = PaymentDate.objects.filter().values_list()
+    dates_list = [str(d[1]) for d in dates_object]
+    return render(request, 'payment_dates.html', context={'z': dates_list})
