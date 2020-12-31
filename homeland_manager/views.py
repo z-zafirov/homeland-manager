@@ -1,5 +1,7 @@
 from django import forms
+from .forms import MonthlyBills
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from homeland_manager.db_modules import db_direct
 from homeland_manager.models import Apartment, Owner, CommonDue, ElevatorDue, MonthlyDue, PaymentDate
 
@@ -72,3 +74,23 @@ def payment_dates(request):
     dates_object = PaymentDate.objects.filter().values_list()
     dates_list = [str(d[1]) for d in dates_object]
     return render(request, 'payment_dates.html', context={'z': dates_list})
+
+
+def monthly_due(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = MonthlyBills(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = MonthlyBills()
+
+    return render(request, 'new_bill.html', {'form': form})
+    

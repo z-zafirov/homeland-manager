@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<br>
+<form action="/new-bill/" method="post">
+    <label for="cleaner_tax">Cleaner tax: </label>
+    <input id="cleaner_tax" type="text" name="cleaner_tax" value="{{ current_name }}">
+    <br>
+    <label for="stairs_electricity">Stairs electricity: </label>
+    <input id="stairs_electricity" type="text" name="stairs_electricity" value="{{ current_name }}">
+    <br>
+    <label for="elevator_electricity">Elevator electricity: </label>
+    <input id="elevator_electricity" type="text" name="elevator_electricity" value="{{ current_name }}">
+    <br>
+    <label for="other_common">Other common pay: </label>
+    <input id="other_common" type="text" name="other_common" value="{{ current_name }}">
+    <br>
+    <label for="other_elevator">Other elevator pay: </label>
+    <input id="other_elevator" type="text" name="other_elevator" value="{{ current_name }}">
+    <br>
+    <label for="common_comment">Common comment: </label>
+    <input id="common_comment" type="text" name="common_comment" value="{{ current_name }}">
+    <br>
+    <label for="elevator_comment">Elevator comment: </label>
+    <input id="elevator_comment" type="text" name="elevator_comment" value="{{ current_name }}">
+    <br>
+    <input type="submit" value="OK">
+</form>
+
+{% endblock %}
