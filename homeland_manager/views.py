@@ -77,6 +77,7 @@ def payment_dates(request):
 
 
 def monthly_due(request):
+    '''
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -91,6 +92,7 @@ def monthly_due(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = MonthlyBills()
-
+    '''
+    form = MonthlyBills(request.POST)
     return render(request, 'new_bill.html', {'form': form})
     
