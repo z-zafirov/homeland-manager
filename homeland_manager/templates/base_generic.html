@@ -19,7 +19,9 @@
       <div class="col-sm-1" style="min-width:77px;">
         {% block sidebar %}
         <br>
-        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'logout' %}">Log out</a>
+        <br>
+        <a href="{% url 'home' %}">Home</a>
         <br>
         <a href="{% url 'payment_dates' %}">Archive</a>
         <br>
