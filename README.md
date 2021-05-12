@@ -1,11 +1,11 @@
-Example Django app for developers and QAs
+Example app for developers and QAs
 ==============================
 
 What Is This?
 -------------
 
-This is a sample Python/Django application intended to provide a working example of a landlord management system.
-The goal of that system is to be simple, well-documented and to provide a base for developers and QA's to learn working with testing tools, development processes, communication skills, etc.
+This is a sample Python/Django application intended to provide a working example of a property management system.
+The goal of that system is to be simple and to provide a base for developers and QA's to learn working with testing tools, development processes, etc.
 
 
 Prepare an environment
@@ -17,10 +17,6 @@ Prepare an environment
 
 *No need to run migrations as the DB file is included in the repo
 
-Download the repo
----------------
-
-Download the latest code from here - https://github.com/z-zafirov/homeland-manager.git
 
 Run the server
 ---------------
