@@ -21,7 +21,7 @@ def index(request):
     '''
 
     # Get the latest date, date model would return the latest record first
-    date_record = PaymentDate.objects.filter().values_list()[1] # This is not the latest one due to latest is not connected to pauments yet
+    date_record = PaymentDate.objects.filter().values_list()[1] # Use id=9 record as due data is not yet added in the DB
     tax_date_index = date_record[0]
     last_date = date_record[1]
 

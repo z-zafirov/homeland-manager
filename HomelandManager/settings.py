@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
     },
 ]
 
@@ -119,3 +120,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Fix a warning server console message
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+# Successful login redirect
+LOGIN_REDIRECT_URL = '/'
