@@ -1,4 +1,4 @@
-Example Uber app for developers
+Example Django app for developers and QAs
 ==============================
 
 What Is This?
