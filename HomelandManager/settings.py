@@ -124,6 +124,12 @@ STATIC_URL = '/static/'
 
 # Fix a warning server console message
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+'''
+# Successful login redirect
+LOGIN_REDIRECT_URL = '/'
+# Logout redirect to the home page
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+'''
 # Successful login redirect
 LOGIN_REDIRECT_URL = '/'
 # Logout redirect to the home page
