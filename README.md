@@ -32,7 +32,6 @@ How to explore
 3. Accounts:
    - user: testuser + testpwd!
    - admin: admin + superadmin
-   - admin: super + Zaf;zd7865
 
 
 Development
